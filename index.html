@@ -1,0 +1,4178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>إلى أمي الحبيبة ❤️</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#003f46;
+    color:white;
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+#passwordScreen{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #08747d 0%,
+            #00474f 45%,
+            #00191c 100%
+        );
+
+    transition:opacity 1s ease;
+}
+
+.passwordBox{
+    width:100%;
+    max-width:430px;
+
+    padding:45px 28px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.55);
+}
+
+.passwordHeart{
+    font-size:65px;
+    margin-bottom:15px;
+
+    animation:heartBeat 1.8s infinite;
+}
+
+.passwordBox h1{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.passwordBox p{
+    line-height:2;
+    opacity:.82;
+    margin-bottom:25px;
+}
+
+#password{
+    width:100%;
+    height:58px;
+
+    border:1px solid rgba(255,255,255,.2);
+    outline:none;
+
+    border-radius:16px;
+
+    background:rgba(0,0,0,.25);
+
+    color:white;
+
+    text-align:center;
+
+    font-size:25px;
+
+    letter-spacing:10px;
+}
+
+#enterBtn{
+    width:100%;
+    height:58px;
+
+    margin-top:15px;
+
+    border:none;
+    border-radius:16px;
+
+    background:white;
+    color:#004c54;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+#enterBtn:hover{
+    transform:translateY(-2px);
+}
+
+#error{
+    display:none;
+    margin-top:15px;
+    color:#ffbaba;
+}
+
+@keyframes heartBeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.14);
+    }
+
+}
+
+
+/* =====================================================
+   CINEMA
+===================================================== */
+
+#cinema{
+    position:fixed;
+    inset:0;
+
+    z-index:99998;
+
+    display:none;
+
+    background:#00191c;
+
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   MEMORY REEL
+===================================================== */
+
+#memoryShow{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #075861 0%,
+            #00191c 85%
+        );
+}
+
+#memoryImage{
+    width:min(92vw,850px);
+    height:min(86vh,850px);
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    opacity:1;
+
+    transform:scale(1);
+
+    filter:
+        drop-shadow(
+            0 25px 70px rgba(0,0,0,.8)
+        );
+
+    will-change:
+        transform,
+        opacity;
+}
+
+.memoryCounter{
+    position:absolute;
+
+    top:22px;
+    right:22px;
+
+    z-index:20;
+
+    padding:9px 17px;
+
+    border-radius:30px;
+
+    background:rgba(0,0,0,.3);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(12px);
+
+    font-size:19px;
+}
+
+.memoryText{
+    position:absolute;
+
+    bottom:22px;
+
+    font-size:17px;
+
+    opacity:.75;
+}
+
+
+/* =====================================================
+   COLLAGE
+===================================================== */
+
+#collageShow{
+    position:absolute;
+    inset:0;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #08646d 0%,
+            #00343a 45%,
+            #001215 100%
+        );
+
+    overflow:hidden;
+
+    transition:opacity 1s ease;
+}
+
+.collageTitle{
+    position:absolute;
+
+    top:20px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:
+        clamp(25px,5vw,40px);
+
+    font-weight:bold;
+
+    z-index:100;
+
+    text-shadow:
+        0 5px 30px rgba(0,0,0,.8);
+}
+
+
+/* =====================================================
+   BIG COLLAGE CONTAINER
+===================================================== */
+
+#collageContainer{
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    max-width:none;
+    max-height:none;
+}
+
+
+/* =====================================================
+   VERY BIG PHOTO CARDS
+===================================================== */
+
+.collagePhoto{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:230px;
+    height:310px;
+
+    padding:8px;
+
+    background:white;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.85);
+
+    opacity:0;
+
+    overflow:hidden;
+
+    animation:
+        collageAppear
+        1s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+}
+
+.collagePhoto img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    border-radius:11px;
+}
+
+
+/* =====================================================
+   COLLAGE ENTRANCE
+===================================================== */
+
+@keyframes collageAppear{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.12)
+            rotate(0deg);
+
+        filter:blur(15px);
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:1;
+
+        filter:blur(0);
+    }
+}
+
+
+/* =====================================================
+   FINAL SCREEN
+===================================================== */
+
+#finalScreen{
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999999;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:#000;
+
+    color:white;
+
+    opacity:0;
+
+    transition:opacity 2s ease;
+}
+
+.finalHeart{
+    font-size:75px;
+
+    margin-bottom:25px;
+
+    animation:
+        heartBeat 1.7s infinite;
+}
+
+.finalText{
+    font-size:
+        clamp(30px,7vw,65px);
+
+    font-weight:bold;
+
+    line-height:1.7;
+
+    text-shadow:
+        0 0 30px rgba(255,255,255,.15);
+}
+
+
+/* =====================================================
+   MAIN WEBSITE
+===================================================== */
+
+#mainSite{
+    display:none;
+
+    min-height:100vh;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 5%,
+            rgba(255,255,255,.08),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255,255,255,.05),
+            transparent 25%
+        ),
+
+        #00464d;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:90vh;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:60px 20px;
+}
+
+.heroSmall{
+    font-size:20px;
+
+    opacity:.85;
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:
+        clamp(55px,13vw,100px);
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:20px;
+
+    line-height:2;
+
+    opacity:.9;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section{
+    width:min(1050px,92%);
+
+    margin:auto;
+
+    padding:90px 0;
+}
+
+.sectionTitle{
+    text-align:center;
+
+    font-size:35px;
+
+    margin-bottom:40px;
+}
+
+
+/* =====================================================
+   AGE
+===================================================== */
+
+.birthday{
+    padding:50px 25px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.25);
+}
+
+.age{
+    font-size:110px;
+    font-weight:bold;
+}
+
+.birthday h2{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.birthday p{
+    line-height:2;
+    opacity:.85;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.messageBox{
+    padding:30px;
+
+    border-radius:28px;
+
+    background:white;
+
+    color:#17484d;
+}
+
+.messageBox textarea{
+    width:100%;
+
+    min-height:200px;
+
+    resize:vertical;
+
+    border:none;
+
+    outline:none;
+
+    font-family:Tahoma,Arial;
+
+    font-size:18px;
+
+    line-height:2;
+}
+
+.messageButton{
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:30px;
+
+    background:#005c65;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.card{
+    padding:30px 20px;
+
+    text-align:center;
+
+    line-height:2;
+
+    border-radius:25px;
+
+    background:white;
+
+    color:#17484d;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.15);
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+
+/* =====================================================
+   QUOTE
+===================================================== */
+
+.quote{
+    padding:60px 25px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+}
+
+.quote h2{
+    font-size:
+        clamp(25px,6vw,45px);
+
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   END
+===================================================== */
+
+.end{
+    min-height:70vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:80px 20px;
+}
+
+.end h1{
+    font-size:
+        clamp(60px,15vw,120px);
+}
+
+.end p{
+    margin-top:20px;
+
+    opacity:.75;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1000px){
+
+    .collagePhoto{
+        width:185px;
+        height:250px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    #memoryImage{
+        width:94vw;
+        height:76vh;
+
+        border-radius:15px;
+    }
+
+    .memoryCounter{
+        top:13px;
+        right:13px;
+
+        font-size:16px;
+
+        padding:7px 13px;
+    }
+
+    .collagePhoto{
+        width:145px;
+        height:200px;
+
+        padding:6px;
+
+        border-radius:14px;
+    }
+
+    #collageContainer{
+        width:100vw;
+        height:100vh;
+    }
+
+    .collageTitle{
+        font-size:24px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .gallery img{
+        height:180px;
+    }
+
+    .section{
+        padding:70px 0;
+    }
+
+    .age{
+        font-size:80px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:420px){
+
+    .collagePhoto{
+        width:128px;
+        height:175px;
+    }
+
+    .collageTitle{
+        font-size:21px;
+    }
+
+}
+
+
+/* =========================================================
+   ENHANCED DESIGN — MAIN SITE + BIGGER 22 PHOTO COLLAGE
+   ========================================================= */
+
+:root{
+    --gold:#e7bd72;
+    --gold2:#fff0c4;
+    --teal:#00343a;
+    --teal2:#00636c;
+    --cream:#fff8e9;
+    --glass:rgba(255,255,255,.075);
+}
+
+body{
+    background:#002d33;
+}
+
+#mainSite{
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 15% 0%, rgba(231,189,114,.16), transparent 24%),
+        radial-gradient(circle at 88% 12%, rgba(255,255,255,.10), transparent 22%),
+        radial-gradient(circle at 50% 70%, rgba(0,125,136,.20), transparent 34%),
+        linear-gradient(180deg,#00191d 0%,#003e45 42%,#00282e 100%);
+}
+
+#mainSite::before,
+#mainSite::after{
+    content:"";
+    position:absolute;
+    pointer-events:none;
+    border-radius:50%;
+    filter:blur(2px);
+    opacity:.55;
+}
+
+#mainSite::before{
+    width:420px;
+    height:420px;
+    top:4%;
+    left:-180px;
+    background:radial-gradient(circle,rgba(231,189,114,.18),transparent 65%);
+}
+
+#mainSite::after{
+    width:500px;
+    height:500px;
+    top:48%;
+    right:-240px;
+    background:radial-gradient(circle,rgba(42,190,198,.14),transparent 65%);
+}
+
+.hero{
+    min-height:92vh;
+    position:relative;
+    padding:80px 20px 100px;
+}
+
+.hero > div{
+    width:min(950px,94%);
+    padding:70px 35px;
+    border:1px solid rgba(231,189,114,.42);
+    border-radius:42px;
+    background:
+        linear-gradient(145deg,rgba(255,255,255,.09),rgba(0,0,0,.10)),
+        rgba(0,43,49,.56);
+    box-shadow:0 35px 100px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.12);
+    backdrop-filter:blur(16px);
+}
+
+.heroSmall{
+    color:var(--gold2);
+    font-size:clamp(18px,2.2vw,25px);
+    letter-spacing:.3px;
+}
+
+.hero h1{
+    color:#fff0c4;
+    font-size:clamp(58px,11vw,115px);
+    text-shadow:0 10px 45px rgba(0,0,0,.65),0 0 28px rgba(231,189,114,.18);
+}
+
+.hero p{
+    font-size:clamp(19px,2.3vw,26px);
+    line-height:2.2;
+}
+
+.section{
+    width:min(1120px,92%);
+    padding:105px 0;
+    position:relative;
+    z-index:2;
+}
+
+.sectionTitle{
+    color:var(--gold2);
+    font-size:clamp(30px,4vw,48px);
+    margin-bottom:48px;
+    text-shadow:0 8px 30px rgba(0,0,0,.45);
+}
+
+.birthday{
+    padding:70px 30px;
+    border-radius:38px;
+    border:1px solid rgba(231,189,114,.52);
+    background:
+        radial-gradient(circle at 20% 20%,rgba(231,189,114,.13),transparent 25%),
+        linear-gradient(145deg,rgba(255,255,255,.09),rgba(0,0,0,.10));
+    box-shadow:0 30px 80px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+.age{
+    color:#f3ca7c;
+    font-size:clamp(100px,15vw,170px);
+    line-height:.95;
+    text-shadow:0 12px 35px rgba(0,0,0,.55),0 0 25px rgba(231,189,114,.18);
+}
+
+.birthday h2{
+    color:#fff0c4;
+    font-size:clamp(28px,4vw,40px);
+}
+
+.birthday p{
+    font-size:20px;
+    line-height:2.2;
+}
+
+.messageBox{
+    padding:38px;
+    border-radius:34px;
+    background:
+        radial-gradient(circle at 90% 0%,rgba(231,189,114,.16),transparent 28%),
+        var(--cream);
+    box-shadow:0 30px 75px rgba(0,0,0,.28);
+    border:1px solid rgba(231,189,114,.55);
+}
+
+.messageBox textarea{
+    min-height:250px;
+    background:transparent;
+    color:#17484d;
+    font-size:19px;
+}
+
+.messageButton{
+    padding:16px 34px;
+    background:linear-gradient(135deg,#006d77,#004d55);
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    transition:.25s;
+}
+
+.messageButton:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 32px rgba(0,0,0,.28);
+}
+
+.cards{
+    gap:24px;
+}
+
+.card{
+    min-height:240px;
+    padding:38px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:19px;
+    border:1px solid rgba(231,189,114,.35);
+    background:
+        radial-gradient(circle at 50% 0%,rgba(231,189,114,.14),transparent 35%),
+        linear-gradient(145deg,#fffdf6,#f3ead6);
+    box-shadow:0 25px 55px rgba(0,0,0,.23);
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.quote{
+    padding:85px 30px;
+    border-radius:40px;
+    background:
+        radial-gradient(circle at center,rgba(231,189,114,.13),transparent 42%),
+        rgba(255,255,255,.055);
+    border:1px solid rgba(231,189,114,.45);
+    box-shadow:0 30px 80px rgba(0,0,0,.28);
+}
+
+.quote h2{
+    color:#fff0c4;
+    font-size:clamp(28px,5vw,52px);
+}
+
+.end{
+    min-height:80vh;
+    position:relative;
+    background:
+        radial-gradient(circle at center,rgba(231,189,114,.14),transparent 35%);
+}
+
+.end h1{
+    color:#f3ca7c;
+    text-shadow:0 0 35px rgba(231,189,114,.18);
+}
+
+/* -------- Three large photo spaces -------- */
+
+.featuredPhotos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+}
+
+.featuredPhoto{
+    position:relative;
+    padding:10px;
+    min-height:430px;
+    border-radius:28px;
+    background:#fff8ea;
+    box-shadow:0 30px 70px rgba(0,0,0,.38);
+    transform:rotate(-1.2deg);
+    transition:.35s;
+}
+
+.featuredPhoto:nth-child(2){
+    transform:translateY(-22px) rotate(.8deg);
+}
+
+.featuredPhoto:nth-child(3){
+    transform:rotate(1.4deg);
+}
+
+.featuredPhoto:hover{
+    transform:translateY(-10px) rotate(0deg) scale(1.02);
+}
+
+.featuredPhoto img{
+    width:100%;
+    height:100%;
+    min-height:410px;
+    display:block;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.featuredPhoto::after{
+    content:"🤍";
+    position:absolute;
+    right:18px;
+    bottom:15px;
+    font-size:32px;
+    filter:drop-shadow(0 5px 10px rgba(0,0,0,.3));
+}
+
+/* -------- Main 22-photo gallery -------- */
+
+.gallery{
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.gallery img{
+    height:340px;
+    padding:8px;
+    object-fit:cover;
+    background:#fff8ea;
+    border-radius:22px;
+    box-shadow:0 20px 45px rgba(0,0,0,.28);
+    border:1px solid rgba(231,189,114,.35);
+    transition:.35s;
+}
+
+.gallery img:hover{
+    transform:translateY(-8px) scale(1.025);
+}
+
+/* -------- Cinema collage: make all 22 photos noticeably larger -------- */
+
+#collageShow{
+    background:
+        radial-gradient(circle at center,#08727b 0%,#003d44 42%,#001316 100%);
+}
+
+#collageContainer{
+    width:100%;
+    height:100%;
+    transform:scale(.92);
+}
+
+.collagePhoto{
+    width:270px;
+    height:365px;
+    padding:9px;
+    border-radius:20px;
+    border:1px solid rgba(231,189,114,.65);
+    box-shadow:0 35px 100px rgba(0,0,0,.9),0 0 25px rgba(231,189,114,.10);
+}
+
+.collagePhoto img{
+    border-radius:13px;
+}
+
+.collageTitle{
+    color:#fff0c4;
+    top:28px;
+    font-size:clamp(28px,4vw,46px);
+    text-shadow:0 8px 35px rgba(0,0,0,.8);
+}
+
+/* Make the 22-photo positions match the larger cards */
+@media(min-width:1101px){
+    #collageContainer{transform:scale(1);}
+}
+
+@media(min-width:1500px){
+    #collageContainer{transform:scale(1);}
+}
+
+@media(max-width:1100px){
+    .collagePhoto{
+        width:215px;
+        height:295px;
+    }
+    #collageContainer{transform:scale(.82);}
+    .featuredPhotos{gap:18px;}
+    .featuredPhoto{min-height:350px;}
+    .featuredPhoto img{min-height:330px;}
+}
+
+@media(max-width:700px){
+    .hero{
+        min-height:82vh;
+        padding:50px 14px 70px;
+    }
+
+    .hero > div{
+        padding:50px 22px;
+        border-radius:30px;
+    }
+
+    .section{
+        width:92%;
+        padding:75px 0;
+    }
+
+    .birthday{
+        padding:55px 20px;
+    }
+
+    .featuredPhotos{
+        grid-template-columns:1fr;
+        gap:26px;
+    }
+
+    .featuredPhoto,
+    .featuredPhoto:nth-child(2),
+    .featuredPhoto:nth-child(3){
+        transform:none;
+        min-height:430px;
+    }
+
+    .featuredPhoto img{
+        min-height:410px;
+    }
+
+    .gallery{
+        grid-template-columns:repeat(2,1fr);
+        gap:14px;
+    }
+
+    .gallery img{
+        height:220px;
+        padding:6px;
+    }
+
+    #collageContainer{
+        transform:scale(.82);
+    }
+
+    .collagePhoto{
+        width:200px;
+        height:275px;
+        padding:7px;
+    }
+
+    .collageTitle{
+        top:15px;
+        font-size:24px;
+    }
+}
+
+@media(max-width:420px){
+    #collageContainer{
+        transform:scale(.72);
+    }
+
+    .collagePhoto{
+        width:190px;
+        height:260px;
+    }
+
+    .featuredPhoto,
+    .featuredPhoto:nth-child(2),
+    .featuredPhoto:nth-child(3){
+        min-height:360px;
+    }
+
+    .featuredPhoto img{
+        min-height:340px;
+    }
+
+    .gallery img{
+        height:185px;
+    }
+}
+
+
+/* FINAL COLLAGE FIX: the tiny-photo issue was caused by the inline scale(.1).
+   Use CSS variables so the entrance animation finishes at scale(1). */
+.collagePhoto{
+    width:320px !important;
+    height:430px !important;
+    padding:10px !important;
+    border-radius:22px !important;
+    background:#fffaf0 !important;
+    box-shadow:0 28px 75px rgba(0,0,0,.82),0 0 28px rgba(231,189,114,.14) !important;
+    transform-origin:center center;
+}
+
+@keyframes collageAppearFixed{
+    0%{
+        opacity:0;
+        transform:
+            translate(-50%,-50%)
+            translate(var(--px),var(--py))
+            rotate(var(--rot))
+            scale(.16);
+        filter:blur(12px);
+    }
+    55%{
+        opacity:1;
+    }
+    100%{
+        opacity:1;
+        transform:
+            translate(-50%,-50%)
+            translate(var(--px),var(--py))
+            rotate(var(--rot))
+            scale(1);
+        filter:blur(0);
+    }
+}
+
+@media(max-width:1100px){
+    .collagePhoto{width:255px !important;height:345px !important;}
+}
+@media(max-width:700px){
+    .collagePhoto{width:205px !important;height:280px !important;}
+}
+@media(max-width:420px){
+    .collagePhoto{width:185px !important;height:255px !important;}
+}
+
+
+/* =========================================================
+   MAIN WEBSITE — REBUILT TO MATCH THE PROVIDED REFERENCE
+   Cinema/password scenario is intentionally untouched.
+   ========================================================= */
+
+.mama-page{
+    --teal-deep:#001b1f;
+    --teal:#003f46;
+    --teal-mid:#075c64;
+    --teal-light:#0b7279;
+    --gold:#e6b967;
+    --gold-light:#ffe6a6;
+    --cream:#f7efdf;
+    --ink:#16474c;
+    min-height:100vh;
+    overflow:hidden;
+    color:#fff;
+    background:
+        radial-gradient(circle at 50% 4%,rgba(12,125,135,.35),transparent 27%),
+        radial-gradient(circle at 8% 72%,rgba(231,185,91,.12),transparent 20%),
+        radial-gradient(circle at 92% 80%,rgba(231,185,91,.12),transparent 20%),
+        linear-gradient(180deg,#00181c 0%,#003e45 45%,#00282e 100%);
+    font-family:Tahoma,Arial,sans-serif;
+}
+
+.mama-page *{box-sizing:border-box}
+
+.mama-hero{
+    min-height:620px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    padding:70px 20px 90px;
+    background:
+        radial-gradient(circle at 12% 25%,rgba(239,190,94,.18),transparent 17%),
+        radial-gradient(circle at 87% 20%,rgba(0,0,0,.4),transparent 30%),
+        linear-gradient(180deg,rgba(0,24,28,.18),rgba(0,20,23,.9));
+}
+
+.mama-hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(circle at 8% 15%,#fff 0 2px,transparent 3px),
+        radial-gradient(circle at 16% 22%,#f6c46d 0 3px,transparent 4px),
+        radial-gradient(circle at 78% 12%,#f8d88d 0 2px,transparent 3px),
+        radial-gradient(circle at 88% 28%,#fff 0 2px,transparent 3px);
+    opacity:.8;
+}
+
+.mama-hero::after{
+    content:"";
+    position:absolute;
+    left:-5%;
+    right:-5%;
+    bottom:0;
+    height:110px;
+    border-top:2px solid rgba(230,185,103,.85);
+    border-radius:50% 50% 0 0;
+    transform:rotate(-2deg);
+    box-shadow:0 -18px 50px rgba(230,185,103,.08);
+}
+
+.hero-lantern{
+    position:absolute;
+    width:150px;
+    height:210px;
+    left:3%;
+    bottom:75px;
+    opacity:.9;
+    border-radius:25px 25px 35px 35px;
+    border:2px solid rgba(230,185,103,.65);
+    box-shadow:0 0 70px rgba(244,190,83,.22),inset 0 0 30px rgba(255,202,105,.15);
+}
+
+.hero-lantern::before{
+    content:"";
+    position:absolute;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    left:40px;
+    top:68px;
+    background:radial-gradient(circle,#fff9d9 0,#ffd77d 20%,rgba(255,184,55,.1) 68%,transparent 70%);
+    box-shadow:0 0 50px 15px rgba(255,192,75,.22);
+}
+
+.hero-copy{
+    position:relative;
+    z-index:2;
+    width:min(920px,94%);
+    padding:20px;
+}
+
+.hero-heart{
+    color:var(--gold-light);
+    font-size:42px;
+    line-height:1;
+    text-shadow:0 0 25px rgba(255,211,121,.3);
+    margin-bottom:18px;
+}
+
+.hero-heart-small{
+    font-size:28px;
+    margin:20px 0 14px;
+}
+
+.hero-small{
+    color:#fff4d1;
+    font-size:clamp(21px,2.4vw,28px);
+    margin-bottom:8px;
+}
+
+.mama-hero h1{
+    margin:0;
+    color:var(--gold-light);
+    font-size:clamp(58px,9vw,110px);
+    line-height:1.2;
+    font-weight:700;
+    text-shadow:0 12px 35px rgba(0,0,0,.7),0 0 25px rgba(231,185,91,.18);
+}
+
+.mama-hero p{
+    margin:18px 0 0;
+    font-size:clamp(20px,2.5vw,29px);
+    line-height:2;
+    color:#fff;
+}
+
+.scroll-hint{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    color:#fff0c5;
+    opacity:.85;
+}
+
+.scroll-hint span{
+    display:grid;
+    place-items:center;
+    width:38px;
+    height:48px;
+    border:1px solid rgba(255,255,255,.65);
+    border-radius:20px;
+    font-size:25px;
+}
+
+.scroll-hint small{font-size:13px}
+
+.mama-section{
+    width:min(1080px,92%);
+    margin:auto;
+    padding:52px 0;
+    position:relative;
+    z-index:2;
+}
+
+.mother-section{padding-top:20px}
+
+.mother-card{
+    min-height:330px;
+    display:grid;
+    grid-template-columns:36% 64%;
+    align-items:center;
+    border:1px solid rgba(230,185,103,.75);
+    border-radius:30px;
+    overflow:hidden;
+    padding:35px 45px;
+    background:
+        radial-gradient(circle at 15% 50%,rgba(231,185,91,.10),transparent 20%),
+        radial-gradient(circle at 90% 30%,rgba(255,255,255,.04),transparent 25%),
+        linear-gradient(145deg,rgba(3,68,75,.96),rgba(0,32,37,.96));
+    box-shadow:0 28px 80px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.mother-art{
+    min-height:260px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.mother-line{
+    width:160px;
+    height:220px;
+    border:3px solid #f3c976;
+    border-left-color:transparent;
+    border-radius:55% 48% 55% 40%;
+    transform:rotate(-12deg);
+    filter:drop-shadow(0 0 12px rgba(240,196,105,.35));
+}
+
+.mother-line::before{
+    content:"";
+    position:absolute;
+    width:65px;
+    height:85px;
+    left:-25px;
+    top:30px;
+    border:3px solid #f3c976;
+    border-right-color:transparent;
+    border-bottom-color:transparent;
+    border-radius:50%;
+    transform:rotate(-20deg);
+}
+
+.mother-heart{
+    position:absolute;
+    left:28%;
+    top:52%;
+    color:#f3c976;
+    font-size:42px;
+    filter:drop-shadow(0 0 10px rgba(240,196,105,.4));
+}
+
+.mother-text{text-align:center}
+
+.mother-text h2{
+    color:var(--gold);
+    font-size:clamp(34px,4vw,48px);
+    margin:0 0 15px;
+}
+
+.mother-text p{
+    font-size:18px;
+    line-height:2.1;
+    margin:12px 0;
+}
+
+.ornament{
+    color:var(--gold);
+    opacity:.85;
+    margin:10px 0;
+}
+
+.mother-text strong{
+    display:block;
+    color:#f1bd62;
+    font-size:clamp(19px,2.1vw,25px);
+    line-height:1.8;
+    margin-top:12px;
+}
+
+.teal-heart{font-size:28px;color:#0aa6ae;margin-top:10px}
+
+.section-heading{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin-bottom:25px;
+}
+
+.section-heading h2{
+    margin:0;
+    color:var(--gold);
+    font-size:clamp(28px,4vw,43px);
+    text-shadow:0 7px 25px rgba(0,0,0,.4);
+}
+
+.section-heading span{
+    color:var(--gold);
+    font-size:26px;
+}
+
+.photo-trio{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+    padding:15px 20px;
+}
+
+.photo-frame{
+    margin:0;
+    padding:9px;
+    background:#f5f0e4;
+    border-radius:4px;
+    box-shadow:0 20px 45px rgba(0,0,0,.4);
+    transform:rotate(-1.2deg);
+}
+
+.photo-frame:nth-child(2){transform:translateY(-10px) rotate(.7deg)}
+.photo-frame:nth-child(3){transform:rotate(1.3deg)}
+
+.photo-frame img{
+    width:100%;
+    aspect-ratio:4/3;
+    display:block;
+    object-fit:cover;
+}
+
+.photo-frame figcaption{
+    color:#6b5c43;
+    text-align:center;
+    padding:8px 2px 2px;
+    font-size:12px;
+}
+
+.memory-caption{
+    text-align:center;
+    line-height:2;
+    color:#fff;
+    opacity:.9;
+    font-size:16px;
+}
+
+.cream-card{
+    min-height:285px;
+    display:grid;
+    grid-template-columns:180px 1fr;
+    align-items:center;
+    gap:30px;
+    padding:38px 45px;
+    color:var(--ink);
+    background:
+        radial-gradient(circle at 10% 15%,rgba(201,169,107,.16),transparent 18%),
+        radial-gradient(circle at 90% 80%,rgba(201,169,107,.13),transparent 18%),
+        #f7efdf;
+    border:1px solid rgba(213,179,113,.8);
+    border-radius:28px;
+    box-shadow:0 25px 65px rgba(0,0,0,.32);
+}
+
+.quill{
+    font-size:115px;
+    text-align:center;
+    filter:sepia(.5);
+    transform:rotate(-18deg);
+}
+
+.cream-copy{text-align:center}
+
+.cream-copy h2{
+    margin:0 0 18px;
+    font-size:clamp(30px,4vw,46px);
+    color:#075c64;
+}
+
+.cream-copy p{
+    font-size:17px;
+    line-height:2.15;
+    margin:0 0 15px;
+}
+
+.cream-copy strong{
+    font-size:21px;
+    color:#183f44;
+}
+
+.age-card{
+    position:relative;
+    display:grid;
+    grid-template-columns:40% 60%;
+    align-items:center;
+    overflow:hidden;
+    min-height:260px;
+    padding:28px 40px;
+    border:1px solid rgba(230,185,103,.7);
+    border-radius:30px;
+    background:
+        radial-gradient(circle at 15% 50%,rgba(230,185,103,.16),transparent 22%),
+        linear-gradient(145deg,#034850,#002a30);
+    box-shadow:0 25px 65px rgba(0,0,0,.35);
+}
+
+.age-number{
+    font-size:clamp(100px,13vw,165px);
+    font-weight:bold;
+    line-height:1;
+    color:#f1c66f;
+    text-align:center;
+    text-shadow:0 10px 30px rgba(0,0,0,.5),0 0 25px rgba(231,185,91,.3);
+}
+
+.age-copy{text-align:center}
+.age-copy h2{color:var(--gold);font-size:clamp(25px,3.5vw,40px);margin:0 0 12px}
+.age-copy p{line-height:2;font-size:17px;margin:0}
+.age-copy strong{display:block;color:#fff1c6;margin-top:10px;font-size:18px}
+.age-sparkles{position:absolute;left:10%;bottom:15px;color:var(--gold);opacity:.7;letter-spacing:12px}
+
+.little-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.little-card{
+    text-align:center;
+    padding:28px 20px;
+    min-height:170px;
+    border:1px solid rgba(230,185,103,.7);
+    border-radius:24px;
+    background:linear-gradient(145deg,#00474e,#002d33);
+    box-shadow:0 20px 45px rgba(0,0,0,.3);
+}
+
+.little-icon{
+    font-size:38px;
+    color:var(--gold);
+    margin-bottom:8px;
+}
+
+.little-card h3{margin:0 0 10px;color:var(--gold);font-size:22px}
+.little-card p{margin:0;line-height:1.9;font-size:15px;opacity:.92}
+
+.gallery-section{padding-top:40px}
+
+.mama-gallery{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:9px;
+    padding:13px;
+    border:1px solid rgba(230,185,103,.6);
+    border-radius:28px;
+    background:rgba(0,34,39,.65);
+    box-shadow:0 25px 65px rgba(0,0,0,.3);
+}
+
+.mama-gallery img{
+    width:100%;
+    aspect-ratio:1/1.12;
+    object-fit:cover;
+    display:block;
+    border:3px solid #f3ead8;
+    border-radius:10px;
+    box-shadow:0 6px 15px rgba(0,0,0,.35);
+    transition:.3s ease;
+}
+
+.mama-gallery img:hover{
+    transform:translateY(-5px) scale(1.03);
+    box-shadow:0 12px 25px rgba(0,0,0,.45);
+}
+
+.closing-card{
+    padding:45px 35px;
+    text-align:center;
+    color:var(--ink);
+    border-radius:28px;
+    border:1px solid rgba(213,179,113,.8);
+    background:#f7efdf;
+    box-shadow:0 25px 65px rgba(0,0,0,.32);
+}
+
+.closing-card h2{
+    margin:0 0 16px;
+    color:#075c64;
+    font-size:clamp(30px,4vw,45px);
+}
+
+.closing-card p{line-height:2.1;font-size:17px;margin:8px 0}
+.closing-big{font-size:clamp(34px,5vw,60px);font-weight:bold;color:#00646d;margin:15px 0}
+.closing-card strong{font-size:18px}
+
+.mama-end{
+    padding:20px 20px 60px;
+    text-align:center;
+}
+
+.end-pill{
+    display:inline-block;
+    min-width:min(480px,90%);
+    padding:13px 35px;
+    border:1px solid rgba(230,185,103,.9);
+    border-radius:50px;
+    color:var(--gold-light);
+    font-size:clamp(25px,3.5vw,40px);
+    background:linear-gradient(180deg,#063f46,#00272d);
+    box-shadow:0 0 35px rgba(230,185,103,.12);
+}
+
+/* Remove the old site's legacy look if any old selectors remain */
+.mama-page .section,
+.mama-page .hero,
+.mama-page .birthday,
+.mama-page .messageBox,
+.mama-page .cards,
+.mama-page .gallery,
+.mama-page .quote,
+.mama-page .end{all:unset}
+
+@media(max-width:800px){
+    .mama-hero{min-height:560px}
+    .hero-lantern{width:90px;height:145px;left:-10px}
+    .mother-card{grid-template-columns:1fr;padding:28px 20px}
+    .mother-art{min-height:180px}
+    .mother-line{width:120px;height:170px}
+    .photo-trio{grid-template-columns:1fr;gap:22px;padding:10px}
+    .photo-frame:nth-child(2){transform:rotate(.5deg)}
+    .cream-card{grid-template-columns:1fr;gap:10px;padding:30px 20px}
+    .quill{font-size:80px}
+    .age-card{grid-template-columns:1fr;padding:25px 18px}
+    .age-number{font-size:110px}
+    .age-sparkles{display:none}
+    .little-cards{grid-template-columns:1fr}
+    .mama-gallery{grid-template-columns:repeat(3,1fr);gap:7px;padding:9px}
+    .mama-section{padding:38px 0}
+}
+
+@media(max-width:480px){
+    .mama-hero{min-height:500px;padding:50px 12px 70px}
+    .mama-hero h1{font-size:54px}
+    .mama-hero p{font-size:18px}
+    .mother-text p{font-size:15px}
+    .mother-text strong{font-size:18px}
+    .mama-gallery{grid-template-columns:repeat(3,1fr)}
+    .mama-gallery img{border-width:2px;border-radius:7px}
+    .closing-card{padding:35px 18px}
+}
+
+
+/* =========================================================
+   FINAL MOBILE-FIRST VERSION
+   ========================================================= */
+
+html, body{
+    width:100%;
+    min-width:100%;
+    margin:0;
+    padding:0;
+    background:#001b1f;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+.mama-page{
+    width:100%;
+    max-width:100%;
+    margin:0;
+    overflow:hidden;
+}
+
+.mama-section{
+    width:min(1080px,94%);
+    padding:46px 0;
+}
+
+/* Bigger, clearer typography */
+.mama-hero h1{
+    font-size:clamp(48px,12vw,86px);
+    line-height:1.25;
+}
+
+.mama-hero p{
+    font-size:clamp(20px,5vw,28px);
+    line-height:1.9;
+}
+
+.hero-small{
+    font-size:clamp(19px,4.5vw,26px);
+}
+
+.mother-text h2{
+    font-size:clamp(38px,9vw,54px);
+}
+
+.mother-text p{
+    font-size:clamp(18px,4.4vw,22px);
+    line-height:2.05;
+}
+
+.mother-text strong{
+    display:block;
+    font-size:clamp(19px,4.6vw,24px);
+    line-height:1.8;
+}
+
+.section-heading h2{
+    font-size:clamp(28px,7vw,44px);
+}
+
+.memory-caption{
+    font-size:clamp(17px,4.2vw,21px);
+    line-height:2;
+}
+
+.cream-copy h2{
+    font-size:clamp(32px,8vw,48px);
+}
+
+.cream-copy p{
+    font-size:clamp(18px,4.3vw,21px);
+    line-height:2;
+}
+
+.cream-copy strong{
+    font-size:clamp(21px,5vw,25px);
+}
+
+.age-number{
+    font-size:clamp(100px,25vw,165px);
+}
+
+.age-copy h2{
+    font-size:clamp(26px,6.5vw,40px);
+}
+
+.age-copy p{
+    font-size:clamp(17px,4vw,21px);
+    line-height:2;
+}
+
+.little-card h3{
+    font-size:clamp(21px,5vw,27px);
+}
+
+.little-card p{
+    font-size:clamp(16px,4vw,20px);
+    line-height:1.9;
+}
+
+.closing-card h2{
+    font-size:clamp(32px,8vw,48px);
+}
+
+.closing-card p{
+    font-size:clamp(17px,4.2vw,21px);
+    line-height:2;
+}
+
+.closing-big{
+    font-size:clamp(28px,7vw,44px);
+}
+
+/* The 3 photos stay large and are the ONLY photo gallery on the site */
+.photo-trio{
+    gap:18px;
+    padding:12px 0;
+}
+
+.photo-frame{
+    padding:8px;
+    border-radius:12px;
+}
+
+.photo-frame img{
+    width:100%;
+    aspect-ratio:4/3;
+}
+
+.photo-frame figcaption{
+    font-size:15px;
+    padding-top:10px;
+}
+
+/* Bottom end button */
+.end-pill{
+    appearance:none;
+    -webkit-appearance:none;
+    cursor:pointer;
+    font-family:Tahoma,Arial,sans-serif;
+    font-weight:bold;
+    width:min(560px,88%);
+    min-width:0;
+    padding:17px 25px;
+    font-size:clamp(27px,7vw,42px);
+    line-height:1.3;
+    color:#ffe6a6;
+    background:linear-gradient(180deg,#064a52,#00272d);
+    border:1.5px solid #e6b967;
+    box-shadow:0 0 35px rgba(230,185,103,.18), inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+/* =========================================================
+   BLACK END-CREDITS SCREEN
+   ========================================================= */
+
+#finalScreen{
+    position:fixed;
+    inset:0;
+    z-index:99999999;
+    display:none;
+    align-items:flex-start;
+    justify-content:center;
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding:35px 16px 70px;
+    background:#000;
+    color:#fff;
+    opacity:0;
+    transition:opacity 1.1s ease;
+    -webkit-overflow-scrolling:touch;
+}
+
+.finalCredits{
+    width:min(620px,100%);
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:18px 0 50px;
+}
+
+.creditsTitle{
+    font-size:clamp(24px,6vw,38px);
+    color:#d9d9d9;
+    letter-spacing:2px;
+    margin-bottom:24px;
+}
+
+.finalHeart{
+    font-size:clamp(54px,14vw,86px);
+    margin:0 0 18px;
+    animation:heartBeat 1.7s infinite;
+}
+
+.finalText{
+    font-size:clamp(30px,8vw,58px);
+    line-height:1.75;
+    font-weight:bold;
+    color:#fff;
+    text-shadow:0 0 24px rgba(255,255,255,.08);
+}
+
+.creditsLine{
+    width:70%;
+    height:1px;
+    margin:28px 0 35px;
+    background:linear-gradient(90deg,transparent,#777,transparent);
+}
+
+.finalPhotos{
+    width:min(390px,88vw);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:22px;
+}
+
+.finalPhotos img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    display:block;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.35);
+    box-shadow:0 18px 50px rgba(0,0,0,.85);
+    opacity:0;
+    animation:creditPhotoIn .9s ease forwards;
+}
+
+.finalPhotos img:nth-child(1){animation-delay:.4s}
+.finalPhotos img:nth-child(2){animation-delay:1.1s}
+.finalPhotos img:nth-child(3){animation-delay:1.8s}
+
+@keyframes creditPhotoIn{
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.creditsEnd{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:38px;
+    color:#e6b967;
+    font-size:clamp(23px,6vw,34px);
+    font-weight:bold;
+}
+
+.creditsEnd small{
+    width:100%;
+    color:#999;
+    font-size:15px;
+    font-weight:normal;
+}
+
+.creditsEnd span{
+    color:#fff;
+}
+
+@media(max-width:480px){
+    .mama-section{
+        width:92%;
+        padding:38px 0;
+    }
+
+    .mama-hero{
+        min-height:530px;
+        padding:45px 14px 70px;
+    }
+
+    .mother-card{
+        padding:24px 16px;
+        border-radius:24px;
+    }
+
+    .photo-trio{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .photo-frame:nth-child(2){
+        transform:rotate(.5deg);
+    }
+
+    .photo-frame:nth-child(3){
+        transform:rotate(-.5deg);
+    }
+
+    .cream-card,
+    .age-card{
+        border-radius:24px;
+    }
+
+    .little-cards{
+        gap:15px;
+    }
+
+    #finalScreen{
+        padding:25px 12px 55px;
+    }
+
+    .finalPhotos{
+        width:min(360px,90vw);
+        gap:18px;
+    }
+}
+
+
+/* =========================================================
+   V2 — MOBILE FIRST CINEMATIC INTRO + END CREDITS
+========================================================= */
+
+#cinemaIntro{
+    position:absolute;
+    inset:0;
+    z-index:300;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 42%, rgba(18,120,128,.45), transparent 32%),
+        radial-gradient(circle at 20% 15%, rgba(231,189,114,.12), transparent 20%),
+        linear-gradient(180deg,#001b1f 0%,#003b42 55%,#001417 100%);
+    color:#fff;
+    opacity:1;
+    transition:opacity 1.2s ease;
+}
+
+#cinemaIntro::before,
+#cinemaIntro::after{
+    content:"";
+    position:absolute;
+    border:1px solid rgba(231,189,114,.28);
+    border-radius:50%;
+    pointer-events:none;
+}
+
+#cinemaIntro::before{
+    width:75vw;
+    height:75vw;
+    max-width:650px;
+    max-height:650px;
+    box-shadow:0 0 80px rgba(231,189,114,.08);
+}
+
+#cinemaIntro::after{
+    width:95vw;
+    height:95vw;
+    max-width:850px;
+    max-height:850px;
+    border-color:rgba(255,255,255,.08);
+}
+
+.introGlow{
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(231,189,114,.14);
+    filter:blur(55px);
+}
+
+.introHeart{
+    position:relative;
+    z-index:2;
+    color:#f3ca7c;
+    font-size:clamp(55px,16vw,100px);
+    margin-bottom:18px;
+    text-shadow:0 0 35px rgba(231,189,114,.35);
+    animation:heartBeat 1.8s infinite;
+}
+
+.introTitle{
+    position:relative;
+    z-index:2;
+    font-size:clamp(42px,11vw,82px);
+    font-weight:bold;
+    color:#fff0c4;
+    text-shadow:0 8px 35px rgba(0,0,0,.65);
+}
+
+.introLine{
+    position:relative;
+    z-index:2;
+    width:min(320px,62vw);
+    height:1px;
+    margin:24px 0;
+    background:linear-gradient(90deg,transparent,#e7bd72,transparent);
+}
+
+.introSub{
+    position:relative;
+    z-index:2;
+    font-size:clamp(21px,5.5vw,30px);
+    line-height:1.8;
+}
+
+.introHint{
+    position:relative;
+    z-index:2;
+    margin-top:18px;
+    color:#e7bd72;
+    font-size:clamp(15px,4vw,20px);
+    opacity:.9;
+}
+
+/* Center every important text block on the site */
+.mama-page,
+.mama-page section,
+.mama-page .mother-card,
+.mama-page .closing-card,
+.mama-page .age-card,
+.mama-page .little-cards,
+.mama-page .section-heading,
+.mama-page .cream-card{
+    text-align:center;
+}
+
+.end-pill{
+    cursor:pointer;
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        background .22s ease,
+        border-color .22s ease;
+    -webkit-tap-highlight-color:transparent;
+}
+
+.end-pill:hover,
+.end-pill:focus-visible{
+    transform:translateY(-5px) scale(1.025);
+    background:linear-gradient(180deg,#0b6872,#00373e);
+    border-color:#ffe1a0;
+    box-shadow:
+        0 0 18px rgba(231,189,114,.35),
+        0 16px 42px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.12);
+    outline:none;
+}
+
+.end-pill:active{
+    transform:translateY(-1px) scale(.99);
+}
+
+/* Final screen: a long vertical movie-credit sequence */
+#finalScreen{
+    align-items:flex-start;
+    justify-content:flex-start;
+    overflow-y:auto;
+    overflow-x:hidden;
+    padding:0;
+    text-align:center;
+    background:#000;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+}
+
+.finalCredits{
+    width:100%;
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:10vh 18px 12vh;
+}
+
+.creditsOpening{
+    width:100%;
+    min-height:72vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.creditsSmall{
+    color:#777;
+    font-size:clamp(18px,5vw,28px);
+    letter-spacing:4px;
+    margin-bottom:28px;
+}
+
+.finalHeart{
+    font-size:clamp(55px,16vw,100px);
+    margin:0 0 22px;
+    color:#fff;
+    animation:heartBeat 1.7s infinite;
+}
+
+.finalText{
+    width:100%;
+    text-align:center;
+    font-size:clamp(32px,9vw,68px);
+    font-weight:bold;
+    line-height:1.8;
+    color:#fff;
+    text-shadow:0 0 30px rgba(255,255,255,.12);
+}
+
+.creditsLine{
+    width:min(360px,72vw);
+    height:1px;
+    margin:34px auto 0;
+    background:linear-gradient(90deg,transparent,#555,transparent);
+}
+
+.finalPhotos{
+    width:min(560px,88vw);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:42px;
+    margin:0 auto;
+}
+
+.finalPhotos .endPhoto{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    display:block;
+    border-radius:14px;
+    border:1px solid rgba(255,255,255,.25);
+    box-shadow:0 24px 70px rgba(0,0,0,.9);
+    opacity:0;
+    transform:translateY(45px) scale(.97);
+    transition:opacity .9s ease, transform .9s ease;
+}
+
+.finalPhotos .endPhoto.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+}
+
+.creditsEnd{
+    width:100%;
+    min-height:80vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    color:#e6b967;
+    font-size:clamp(26px,7vw,42px);
+    font-weight:bold;
+    flex-shrink:0;
+}
+
+.creditsEnd span{
+    color:#fff;
+}
+
+.creditsEnd small{
+    display:block;
+    color:#777;
+    font-size:clamp(13px,3.5vw,17px);
+    font-weight:normal;
+    line-height:1.8;
+    max-width:340px;
+}
+
+/* Keep the cinematic photo cards readable on phones */
+.collagePhoto{
+    width:min(230px,42vw);
+    height:min(310px,56vw);
+}
+
+@media(max-width:600px){
+    #cinemaIntro{
+        padding:20px;
+    }
+
+    .collagePhoto{
+        width:185px;
+        height:250px;
+        padding:6px;
+        border-radius:14px;
+    }
+
+    .finalCredits{
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .finalPhotos{
+        width:min(430px,90vw);
+        gap:32px;
+    }
+
+    .finalPhotos .endPhoto{
+        border-radius:12px;
+    }
+
+    .creditsOpening{
+        min-height:76vh;
+    }
+
+    .creditsEnd{
+        min-height:70vh;
+    }
+}
+
+
+/* Full date password: 9/6/1988 */
+#password{
+    font-size:22px !important;
+    letter-spacing:2px !important;
+    direction:ltr;
+    text-align:center;
+}
+
+@media(max-width:600px){
+    #password{
+        height:62px;
+        font-size:21px !important;
+        letter-spacing:1.5px !important;
+    }
+}
+
+
+/* =========================================================
+   PHONE PREMIUM MODE — iPhone + Android
+   الهاتف هو المقاس الأساسي للمشاهدة
+========================================================= */
+
+html{
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+    scroll-padding-top:12px;
+}
+
+body{
+    min-height:100vh;
+    min-height:100dvh;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+button,
+input,
+textarea{
+    font:inherit;
+}
+
+button{
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+}
+
+@media(max-width:700px){
+
+    body{
+        width:100%;
+        min-width:0;
+        overflow-x:hidden;
+    }
+
+    /* شاشة الباسورد */
+    #passwordScreen{
+        min-height:100svh;
+        min-height:100dvh;
+        padding:
+            max(18px, env(safe-area-inset-top))
+            14px
+            max(22px, env(safe-area-inset-bottom));
+    }
+
+    .passwordBox{
+        width:100%;
+        max-width:430px;
+        padding:30px 18px 26px;
+        border-radius:24px;
+    }
+
+    .passwordBox h1{
+        font-size:clamp(29px,8vw,40px);
+        line-height:1.35;
+    }
+
+    .passwordBox p{
+        font-size:17px;
+        line-height:1.9;
+    }
+
+    #password{
+        width:100%;
+        min-height:58px;
+        height:58px;
+        border-radius:16px;
+        font-size:21px !important;
+    }
+
+    #enterBtn{
+        width:100%;
+        min-height:58px;
+        margin-top:12px;
+        border-radius:16px;
+        font-size:18px;
+    }
+
+    /* السينماتيك الأولى */
+    #cinemaIntro{
+        min-height:100svh;
+        min-height:100dvh;
+        padding:
+            max(20px, env(safe-area-inset-top))
+            18px
+            max(28px, env(safe-area-inset-bottom));
+    }
+
+    .introHeart{
+        font-size:clamp(58px,18vw,82px);
+        margin-bottom:10px;
+    }
+
+    .introTitle{
+        font-size:clamp(34px,10vw,58px);
+        line-height:1.35;
+        max-width:95%;
+    }
+
+    .introSub{
+        font-size:clamp(18px,5.2vw,24px);
+        line-height:1.8;
+        max-width:92%;
+    }
+
+    .introHint{
+        font-size:15px;
+        line-height:1.7;
+    }
+
+    /* الهيرو */
+    .mama-hero{
+        min-height:100svh;
+        min-height:100dvh;
+        padding:
+            max(60px, env(safe-area-inset-top))
+            14px
+            max(55px, env(safe-area-inset-bottom));
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .hero-copy{
+        width:100%;
+        max-width:520px;
+        padding:10px 8px;
+    }
+
+    .hero-lantern{
+        width:72px;
+        height:118px;
+        left:-18px;
+        bottom:72px;
+        opacity:.5;
+        transform:scale(.85);
+    }
+
+    .mama-hero h1{
+        font-size:clamp(42px,12vw,68px);
+        line-height:1.3;
+        word-break:keep-all;
+    }
+
+    .mama-hero p{
+        font-size:clamp(18px,5vw,24px);
+        line-height:1.9;
+        margin-top:12px;
+    }
+
+    .hero-heart{
+        font-size:36px;
+        margin-bottom:10px;
+    }
+
+    .hero-heart-small{
+        font-size:25px;
+        margin:15px 0 12px;
+    }
+
+    .hero-small{
+        font-size:18px;
+    }
+
+    .scroll-hint span{
+        width:44px;
+        height:52px;
+        font-size:26px;
+    }
+
+    /* الأقسام */
+    .mama-section{
+        width:calc(100% - 24px);
+        padding:30px 0;
+    }
+
+    .mother-section{
+        padding-top:22px;
+    }
+
+    .mother-card,
+    .cream-card,
+    .age-card,
+    .closing-card{
+        width:100%;
+        max-width:100%;
+        padding:24px 16px;
+        border-radius:22px;
+    }
+
+    .mother-card{
+        grid-template-columns:1fr;
+        gap:12px;
+        min-height:0;
+    }
+
+    .mother-art{
+        min-height:145px;
+        transform:scale(.78);
+        transform-origin:center;
+        margin:-12px 0 -6px;
+    }
+
+    .mother-heart{
+        left:50%;
+        transform:translateX(-50%);
+    }
+
+    .mother-text h2{
+        font-size:38px;
+        line-height:1.3;
+    }
+
+    .mother-text p{
+        font-size:17px;
+        line-height:2;
+    }
+
+    .mother-text strong{
+        font-size:19px;
+        line-height:1.8;
+    }
+
+    /* الصور الثلاث */
+    .photo-trio{
+        grid-template-columns:1fr;
+        gap:18px;
+        padding:6px 2px;
+    }
+
+    .photo-frame{
+        width:100%;
+        padding:7px;
+        border-radius:12px;
+    }
+
+    .photo-frame:nth-child(2){
+        transform:rotate(.5deg);
+    }
+
+    .photo-frame:nth-child(3){
+        transform:rotate(-.5deg);
+    }
+
+    .photo-frame img{
+        width:100%;
+        aspect-ratio:4/3;
+        object-fit:cover;
+        border-radius:6px;
+    }
+
+    .photo-frame figcaption{
+        font-size:14px;
+        padding:9px 2px 2px;
+    }
+
+    .memory-caption{
+        font-size:16px;
+        line-height:1.9;
+    }
+
+    /* الرسالة */
+    .cream-card{
+        grid-template-columns:1fr;
+        gap:4px;
+        min-height:0;
+    }
+
+    .quill{
+        font-size:66px;
+        margin:-8px 0 0;
+    }
+
+    .cream-copy h2{
+        font-size:32px;
+        line-height:1.4;
+        margin-bottom:12px;
+    }
+
+    .cream-copy p{
+        font-size:17px;
+        line-height:2;
+    }
+
+    .cream-copy strong{
+        font-size:19px;
+        line-height:1.8;
+    }
+
+    /* العمر */
+    .age-card{
+        grid-template-columns:1fr;
+        gap:6px;
+        min-height:0;
+    }
+
+    .age-number{
+        font-size:clamp(86px,25vw,125px);
+    }
+
+    .age-copy h2{
+        font-size:27px;
+        line-height:1.45;
+    }
+
+    .age-copy p{
+        font-size:17px;
+        line-height:2;
+    }
+
+    .age-copy strong{
+        font-size:18px;
+        line-height:1.8;
+    }
+
+    .age-sparkles{
+        display:none;
+    }
+
+    /* كروت الحب */
+    .little-cards{
+        grid-template-columns:1fr;
+        gap:13px;
+    }
+
+    .little-card{
+        min-height:0;
+        padding:22px 17px;
+        border-radius:20px;
+    }
+
+    .little-icon{
+        font-size:34px;
+    }
+
+    .little-card h3{
+        font-size:21px;
+        line-height:1.5;
+    }
+
+    .little-card p{
+        font-size:16px;
+        line-height:1.9;
+    }
+
+    /* الجاليري */
+    .mama-gallery{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        gap:6px;
+        padding:8px;
+        border-radius:20px;
+    }
+
+    .mama-gallery img{
+        border-width:2px;
+        border-radius:7px;
+        aspect-ratio:1/1.08;
+    }
+
+    /* النهاية */
+    .closing-card{
+        padding:30px 16px;
+    }
+
+    .closing-card h2{
+        font-size:31px;
+        line-height:1.4;
+    }
+
+    .closing-card p{
+        font-size:16px;
+        line-height:2;
+    }
+
+    .closing-big{
+        font-size:31px;
+        line-height:1.5;
+    }
+
+    .closing-card strong{
+        font-size:17px;
+        line-height:1.8;
+    }
+
+    .mama-end{
+        padding:
+            12px
+            12px
+            max(45px, env(safe-area-inset-bottom));
+    }
+
+    .end-pill{
+        width:100%;
+        min-width:0;
+        min-height:58px;
+        padding:13px 18px;
+        border-radius:30px;
+        font-size:22px;
+    }
+
+    /* شاشة النهاية السوداء */
+    #finalScreen{
+        min-height:100svh;
+        min-height:100dvh;
+        padding:
+            max(20px, env(safe-area-inset-top))
+            12px
+            max(35px, env(safe-area-inset-bottom));
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .finalCredits{
+        width:100%;
+        padding-left:4px;
+        padding-right:4px;
+    }
+
+    .finalPhotos{
+        width:min(430px,92vw);
+        gap:24px;
+    }
+
+    .finalPhotos .endPhoto{
+        max-width:100%;
+        height:auto;
+    }
+}
+
+/* الشاشات الصغيرة جدًا */
+@media(max-width:380px){
+    .passwordBox{
+        padding:25px 14px 22px;
+    }
+
+    .mama-hero h1{
+        font-size:40px;
+    }
+
+    .mama-hero p{
+        font-size:17px;
+    }
+
+    .mother-text p,
+    .cream-copy p,
+    .age-copy p{
+        font-size:16px;
+    }
+
+    .mama-gallery{
+        gap:5px;
+        padding:7px;
+    }
+}
+
+/* الوضع الأفقي للموبايل */
+@media(max-width:900px) and (orientation:landscape){
+    .mama-hero{
+        min-height:100svh;
+        padding-top:30px;
+        padding-bottom:30px;
+    }
+
+    .mama-hero h1{
+        font-size:clamp(34px,8vw,58px);
+    }
+
+    .hero-heart{
+        font-size:30px;
+    }
+
+    #cinemaIntro{
+        min-height:100svh;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     PASSWORD
+===================================================== -->
+
+<div id="passwordScreen">
+
+    <div class="passwordBox">
+
+        <div class="passwordHeart">
+            ❤️
+        </div>
+
+        <h1>
+            إلى أمي الحبيبة
+        </h1>
+
+        <p>
+
+            فيه مفاجأة صغيرة معمولة
+            مخصوص ليكي 🤍
+
+            <br>
+
+            اكتبي كلمة السر وابدئي الرحلة
+
+        </p>
+
+        <input
+            id="password"
+            type="password"
+            inputmode="text"
+            autocomplete="off"
+            maxlength="10"
+            placeholder="••••••••"
+        >
+
+        <button id="enterBtn">
+
+            ابدأ الذكريات 🤍
+
+        </button>
+
+        <div id="error">
+
+            الباسورد غلط 🤍
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     CINEMA
+===================================================== -->
+
+<div id="cinema">
+
+    
+<div id="cinemaIntro">
+    <div class="introGlow"></div>
+    <div class="introHeart">♥</div>
+    <div class="introTitle">إلى أمي الحبيبة</div>
+    <div class="introLine"></div>
+    <div class="introSub">كل سنة وإنتِ طيبة يا ست الكل</div>
+    <div class="introHint">ذكريات صغيرة... بحب كبير ♥</div>
+</div>
+
+<div id="memoryShow">
+
+        <div class="memoryCounter">
+
+            <span id="memoryCounter">
+                01 / 22
+            </span>
+
+        </div>
+
+        <img
+            id="memoryImage"
+            src=""
+            alt="ذكرى"
+        >
+
+        <div class="memoryText">
+
+            ذكريات جميلة 🤍
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         BIG COLLAGE
+    ================================================= -->
+
+    <div id="collageShow">
+
+        <div class="collageTitle">
+
+            أجمل ذكريات 🤍
+
+        </div>
+
+        <div id="collageContainer"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     FINAL BLACK SCREEN
+===================================================== -->
+
+<div id="finalScreen">
+    <div class="finalCredits">
+
+        <div class="creditsOpening">
+            <div class="creditsSmall">النهاية</div>
+            <div class="finalHeart">♥</div>
+            <div class="finalText">
+                كل سنة وإنتِ طيبة
+                <br>
+                يا ست الكل ♥
+            </div>
+            <div class="creditsLine"></div>
+        </div>
+
+        <div class="finalPhotos" id="finalPhotos"></div>
+
+        <div class="creditsEnd">
+            <span>♥</span>
+            <div>إلى أمي الحبيبة</div>
+            <span>♥</span>
+            <small>انتهت الحكاية... لكن الذكريات عمرها ما تخلص</small>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =====================================================
+     MAIN WEBSITE
+===================================================== -->
+
+<div id="mainSite" class="mama-page">
+
+    <!-- HERO -->
+    <section class="mama-hero">
+        <div class="hero-lantern"></div>
+        <div class="hero-copy">
+            <div class="hero-heart">♥</div>
+            <div class="hero-small">كل سنة وإنتِ طيبة</div>
+            <h1>إلى أمي الحبيبة</h1>
+            <p>يا أجمل وأحن إنسانة في حياتي</p>
+            <div class="hero-heart hero-heart-small">♥</div>
+            <div class="scroll-hint">
+                <span>↓</span>
+                <small>إسحبي للأسفل</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOTHER MESSAGE -->
+    <section class="mama-section mother-section">
+        <div class="mother-card">
+            <div class="mother-art" aria-hidden="true">
+                <div class="mother-line"></div>
+                <div class="mother-heart">♡</div>
+            </div>
+
+            <div class="mother-text">
+                <h2>أمي...</h2>
+                <p>
+                    مش عارفة أبدأ كلامي منين،<br>
+                    لأن مهما كتبت هيفضل قليل.<br>
+                    مش هقدر أوصف مكانتك عندي.
+                </p>
+                <div class="ornament">──── ❀ ────</div>
+                <p>
+                    إنتِ الشخص اللي وجوده لوحده بيطمن،<br>
+                    والبيت من غيره ملوش نفس الإحساس.
+                </p>
+                <strong>ربنا يخليكي ليا ويديمك فوق راسي<br>ويخلي كل أيامك فرحة وراحة</strong>
+                <div class="teal-heart">♥</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THREE PHOTO SPACES -->
+    <section class="mama-section memories-section">
+        <div class="section-heading">
+            <span>♡</span>
+            <h2>ذكريات</h2>
+            <span>♡</span>
+        </div>
+
+        <div class="photo-trio">
+            <figure class="photo-frame">
+                <img src="MAMA 1.jpeg" alt="ذكرى 1">
+                <figcaption>لحظة جميلة 🤍</figcaption>
+            </figure>
+            <figure class="photo-frame">
+                <img src="MAMA 2.jpeg" alt="ذكرى 2">
+                <figcaption>من أجمل أيامنا 🤍</figcaption>
+            </figure>
+            <figure class="photo-frame">
+                <img src="MAMA 3.jpeg" alt="ذكرى 3">
+                <figcaption>ذكرى تفضل في القلب 🤍</figcaption>
+            </figure>
+        </div>
+
+        <p class="memory-caption">
+            كل لحظة معاكي هي ذكرى ما تتنسيش،<br>
+            من ضحكة صغيرة لحد حضنك اللي دايمًا كان أمان.
+        </p>
+    </section>
+
+    <!-- LETTER / QUOTE -->
+    <section class="mama-section">
+        <div class="cream-card">
+            <div class="quill" aria-hidden="true">🪶</div>
+            <div class="cream-copy">
+                <h2>نفسي أقولك ♡</h2>
+                <p>
+                    نفسي تعرفي إن كل حاجة حلوة في حياتي ليكي فيها جزء كبير.<br>
+                    كل مرة وقفتي جنبي، كل مرة طمنتيني،<br>
+                    وكل مرة كنتي موجودة من غير ما أطلب...
+                </p>
+                <strong>أنا فاكر كل ده، ومش هنساه أبدًا.</strong>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGE -->
+    <section class="mama-section">
+        <div class="age-card">
+            <div class="age-number">38</div>
+            <div class="age-copy">
+                <h2>38 سنة من الحب والحنان ♡</h2>
+                <p>
+                    أتمنى السنة الجديدة من عمرك تكون مليانة<br>
+                    راحة، وفرحة، ودعوات مستجابة.<br>
+                    وكل حاجة نفسك فيها.
+                </p>
+                <strong>كل سنة وإنتِ طيبة يا أمي الغالية</strong>
+            </div>
+            <div class="age-sparkles">✦ ✧ ✦</div>
+        </div>
+    </section>
+
+    <!-- THREE HEART CARDS -->
+    <section class="mama-section">
+        <div class="little-cards">
+            <article class="little-card">
+                <div class="little-icon">⌂</div>
+                <h3>البيت اللي فيه أمان</h3>
+                <p>حضنك هو مكاني المفضل، وصوتك هو راحتي.</p>
+            </article>
+
+            <article class="little-card">
+                <div class="little-icon">♥</div>
+                <h3>الحب اللي ما يتوصفش</h3>
+                <p>حبي ليكي أكبر من أي كلمة، وأعمق من أي وصف.</p>
+            </article>
+
+            <article class="little-card">
+                <div class="little-icon">❦</div>
+                <h3>الدعوة اللي ما بتتردش</h3>
+                <p>دعواتك سر نجاحي وخيري، وبتوصلني في كل خطوة.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- 22 PHOTO GALLERY -->
+        <!-- CLOSING -->
+    <section class="mama-section closing-section">
+        <div class="closing-card">
+            <h2>أمي الحبيبة...</h2>
+            <p>
+                لو كان ينفع أديكي حاجة مقابل كل حاجة عملتيها عشاني،<br>
+                كنت هديكي الدنيا كلها.<br>
+                بس كل اللي أقدر أقوله من كل قلبي:
+            </p>
+            <div class="closing-big">ربنا يخليكي ليا.</div>
+            <strong>كل سنة وإنتِ طيبة يا ست الكل ♥</strong>
+        </div>
+    </section>
+
+    <section class="mama-end">
+        <button class="end-pill" id="endButton" type="button">♥ &nbsp; النهاية &nbsp; ♥</button>
+    </section>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   PASSWORD
+===================================================== */
+
+const PASSWORD_CODE = "9/6/1988";
+
+
+/* =====================================================
+   MEMORY MUSIC
+   Music Mama.mp3 must be in the same folder as index.html
+===================================================== */
+
+const memoryMusic = new Audio("./Music%20Mama.mp3");
+
+memoryMusic.preload = "auto";
+memoryMusic.volume = 0.35;
+memoryMusic.loop = false;
+
+
+/* =====================================================
+   PHOTOS
+===================================================== */
+
+const photos = [];
+
+for(let i = 1; i <= 22; i++){
+
+    photos.push(
+        `MAMA ${i}.jpeg`
+    );
+
+}
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const passwordScreen =
+    document.getElementById(
+        "passwordScreen"
+    );
+
+const passwordInput =
+    document.getElementById(
+        "password"
+    );
+
+const enterBtn =
+    document.getElementById(
+        "enterBtn"
+    );
+
+const error =
+    document.getElementById(
+        "error"
+    );
+
+const cinema =
+    document.getElementById(
+        "cinema"
+    );
+
+const memoryShow =
+    document.getElementById(
+        "memoryShow"
+    );
+
+const memoryImage =
+    document.getElementById(
+        "memoryImage"
+    );
+
+const memoryCounter =
+    document.getElementById(
+        "memoryCounter"
+    );
+
+const collageShow =
+    document.getElementById(
+        "collageShow"
+    );
+
+const collageContainer =
+    document.getElementById(
+        "collageContainer"
+    );
+
+const finalScreen =
+    document.getElementById(
+        "finalScreen"
+    );
+
+const mainSite =
+    document.getElementById(
+        "mainSite"
+    );
+
+
+/* =====================================================
+   PRELOAD
+===================================================== */
+
+const loadedPhotos = [];
+
+photos.forEach(
+    (src,index) => {
+
+        const img =
+            new Image();
+
+        img.src = src;
+
+        loadedPhotos[index] =
+            img;
+
+    }
+);
+
+
+/* =====================================================
+   PASSWORD CHECK
+===================================================== */
+
+enterBtn.addEventListener(
+    "click",
+    checkPassword
+);
+
+passwordInput.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Enter"){
+
+            checkPassword();
+
+        }
+
+    }
+);
+
+
+function checkPassword(){
+
+    if(
+        passwordInput.value !==
+        PASSWORD_CODE
+    ){
+
+        error.style.display =
+            "block";
+
+        passwordInput.value =
+            "";
+
+        return;
+
+    }
+
+    error.style.display =
+        "none";
+
+    /* =====================================================
+       PLAY MEMORY MUSIC
+       This is triggered directly by the password button/Enter
+       so the browser allows audio playback.
+    ===================================================== */
+
+    memoryMusic.currentTime = 0;
+
+    memoryMusic.play().catch(function(err){
+
+        console.error("Music playback failed:", err);
+
+    });
+
+    passwordScreen.style.opacity =
+        "0";
+
+    setTimeout(
+        function(){
+
+            passwordScreen.style.display =
+                "none";
+
+            startCinema();
+
+        },
+        900
+    );
+
+}
+
+
+/* =====================================================
+   START CINEMA
+===================================================== */
+
+function startCinema(){
+
+    cinema.style.display =
+        "block";
+
+    cinema.style.opacity =
+        "1";
+
+    memoryShow.style.display =
+        "none";
+
+    collageShow.style.display =
+        "none";
+
+    const intro =
+        document.getElementById("cinemaIntro");
+
+    if(intro){
+
+        intro.style.display =
+            "flex";
+
+        intro.style.opacity =
+            "1";
+
+        setTimeout(
+            function(){
+
+                intro.style.opacity =
+                    "0";
+
+                setTimeout(
+                    function(){
+
+                        intro.style.display =
+                            "none";
+
+                        memoryShow.style.display =
+                            "flex";
+
+                        playFirstFast();
+
+                    },
+                    1200
+                );
+
+            },
+            2800
+        );
+
+    }else{
+
+        memoryShow.style.display =
+            "flex";
+
+        playFirstFast();
+
+    }
+
+}
+
+
+/* =====================================================
+   SET PHOTO
+   لا يوجد فريم فاضي
+===================================================== */
+
+function setPhoto(
+    index,
+    type
+){
+
+    if(
+        !loadedPhotos[index]
+    ){
+
+        return;
+
+    }
+
+
+    memoryImage.src =
+        loadedPhotos[index].src;
+
+
+    memoryCounter.textContent =
+        `${String(index + 1).padStart(2,"0")} / 22`;
+
+
+    if(type === "fast"){
+
+        memoryImage.style.transition =
+            "none";
+
+        memoryImage.style.opacity =
+            "1";
+
+        memoryImage.style.transform =
+            "scale(1.06)";
+
+
+        requestAnimationFrame(
+            function(){
+
+                memoryImage.style.transform =
+                    "scale(1)";
+
+            }
+        );
+
+    }
+
+
+    if(type === "normal"){
+
+        memoryImage.style.transition =
+            "none";
+
+        memoryImage.style.opacity =
+            "1";
+
+        memoryImage.style.transform =
+            "scale(1.13)";
+
+
+        requestAnimationFrame(
+            function(){
+
+                memoryImage.style.transition =
+                    "transform 950ms cubic-bezier(.16,1,.3,1)";
+
+                memoryImage.style.transform =
+                    "scale(1)";
+
+            }
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   FIRST 22
+   VERY FAST
+===================================================== */
+
+function playFirstFast(){
+
+    let index = 0;
+
+
+    function next(){
+
+        if(index >= 22){
+
+            setTimeout(
+                playNormal,
+                450
+            );
+
+            return;
+
+        }
+
+
+        setPhoto(
+            index,
+            "fast"
+        );
+
+
+        index++;
+
+
+        setTimeout(
+            next,
+            70
+        );
+
+    }
+
+
+    next();
+
+}
+
+
+/* =====================================================
+   NORMAL 22
+===================================================== */
+
+function playNormal(){
+
+    let index = 0;
+
+
+    function next(){
+
+        if(index >= 22){
+
+            setTimeout(
+                showCollage,
+                600
+            );
+
+            return;
+
+        }
+
+
+        setPhoto(
+            index,
+            "normal"
+        );
+
+
+        index++;
+
+
+        setTimeout(
+            next,
+            1000
+        );
+
+    }
+
+
+    next();
+
+}
+
+
+/* =====================================================
+   BIG COLLAGE
+===================================================== */
+
+function showCollage(){
+
+    memoryShow.style.display =
+        "none";
+
+    collageShow.style.display =
+        "flex";
+
+    collageShow.style.opacity =
+        "1";
+
+    collageContainer.innerHTML =
+        "";
+
+
+    /*
+       22 صورة
+       كبيرة
+       ومتداخلة
+       وتملأ الشاشة
+    */
+
+    const positions = [
+
+        [-430,-280,-13],
+        [-215,-315,8],
+        [0,-335,-5],
+        [215,-315,11],
+        [430,-280,-8],
+
+        [-500,-80,8],
+        [-250,-105,-10],
+        [0,-120,4],
+        [250,-105,-7],
+        [500,-80,12],
+
+        [-500,120,-9],
+        [-250,105,7],
+        [0,90,-4],
+        [250,105,10],
+        [500,120,-11],
+
+        [-430,305,11],
+        [-215,285,-7],
+        [0,315,6],
+        [215,285,-10],
+        [430,305,8],
+
+        [-125,0,-6],
+        [125,10,7]
+
+    ];
+
+
+    photos.forEach(
+        function(
+            photo,
+            index
+        ){
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "collagePhoto";
+
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+
+            img.src =
+                photo;
+
+            img.alt =
+                "ذكرى";
+
+
+            card.appendChild(
+                img
+            );
+
+
+            const p =
+                positions[index];
+
+
+            card.style.setProperty("--px", `${p[0]}px`);
+            card.style.setProperty("--py", `${p[1]}px`);
+            card.style.setProperty("--rot", `${p[2]}deg`);
+
+            card.style.animation =
+                `collageAppearFixed 1s cubic-bezier(.16,1,.3,1) ${index * 0.08}s forwards`;
+
+
+            /*
+               بعض الصور تدخل
+               من اتجاه مختلف
+            */
+
+            collageContainer.appendChild(
+                card
+            );
+
+        }
+    );
+
+
+    /*
+       مدة التجميعة
+    */
+
+    setTimeout(
+        function(){
+
+            collageShow.style.opacity =
+                "0";
+
+
+            setTimeout(
+                function(){
+
+                    collageShow.style.display =
+                        "none";
+
+                    memoryShow.style.display =
+                        "flex";
+
+                    playFinalFast();
+
+                },
+                1100
+            );
+
+        },
+        8500
+    );
+
+}
+
+
+/* =====================================================
+   END OF CINEMA
+   22 FINAL PHOTOS REMOVED FROM THE SCENARIO
+===================================================== */
+
+function playFinalFast(){
+
+    /* بعد الـ22 صورة السريعة + الـ22 البطيئة + التجميعة،
+       لا نعرض 22 صورة إضافية. ننتقل مباشرة لشاشة النهاية السوداء. */
+
+    setTimeout(
+        finishCinema,
+        500
+    );
+
+}
+
+
+/* =====================================================
+   FINAL BLACK SCREEN → MAIN WEBSITE
+===================================================== */
+
+function finishCinema(){
+
+    const creditsOpening =
+        document.querySelector(".creditsOpening");
+
+    const finalPhotosLayer =
+        document.getElementById("finalPhotos");
+
+    const creditsEnd =
+        document.querySelector(".creditsEnd");
+
+    /* شاشة سوداء فقط بدون صور النهاية */
+    if(finalPhotosLayer){
+        finalPhotosLayer.style.display =
+            "none";
+    }
+
+    if(creditsEnd){
+        creditsEnd.style.display =
+            "none";
+    }
+
+    if(creditsOpening){
+        creditsOpening.style.display =
+            "flex";
+        creditsOpening.style.minHeight =
+            "100vh";
+    }
+
+    finalScreen.style.display =
+        "flex";
+
+    finalScreen.style.opacity =
+        "0";
+
+    finalScreen.style.transition =
+        "opacity 1.6s cubic-bezier(.22,1,.36,1)";
+
+    document.body.style.overflow =
+        "hidden";
+
+    /* إخفاء السيناريو تدريجياً مع ظهور الشاشة السوداء */
+    cinema.style.transition =
+        "opacity 1.6s cubic-bezier(.22,1,.36,1)";
+
+    cinema.style.opacity =
+        "0";
+
+    requestAnimationFrame(function(){
+        finalScreen.style.opacity =
+            "1";
+    });
+
+    /* نترك رسالة: كل سنة وإنتِ طيبة يا ست الكل ♥ ظاهرة قليلاً */
+    setTimeout(
+        function(){
+
+            finalScreen.style.opacity =
+                "0";
+
+            setTimeout(
+                function(){
+
+                    finalScreen.style.display =
+                        "none";
+
+                    cinema.style.display =
+                        "none";
+
+                    mainSite.style.display =
+                        "block";
+
+                    mainSite.style.opacity =
+                        "0";
+
+                    mainSite.style.transition =
+                        "opacity 1.4s ease";
+
+                    window.scrollTo(
+                        0,
+                        0
+                    );
+
+                    requestAnimationFrame(function(){
+                        mainSite.style.opacity =
+                            "1";
+                    });
+
+                    document.body.style.overflow =
+                        "auto";
+
+                    /* رجوع طبقات شاشة النهاية لو زر النهاية اتضغط لاحقاً */
+                    if(finalPhotosLayer){
+                        finalPhotosLayer.style.display =
+                            "flex";
+                    }
+
+                    if(creditsEnd){
+                        creditsEnd.style.display =
+                            "flex";
+                    }
+
+                    if(creditsOpening){
+                        creditsOpening.style.minHeight =
+                            "72vh";
+                    }
+
+                },
+                1600
+            );
+
+        },
+        4200
+    );
+
+}
+
+
+
+/* =====================================================
+   END BUTTON → BLACK SERIES ENDING + 22 AUTO-SCROLL PHOTOS
+===================================================== */
+
+const endButton =
+    document.getElementById("endButton");
+
+const finalScreenElement =
+    document.getElementById("finalScreen");
+
+const finalPhotos =
+    document.getElementById("finalPhotos");
+
+function buildFinalCredits(){
+
+    if(!finalPhotos || finalPhotos.dataset.ready === "1"){
+        return;
+    }
+
+    for(let i = 1; i <= 22; i++){
+
+        const img =
+            document.createElement("img");
+
+        img.className =
+            "endPhoto";
+
+        img.src =
+            `MAMA ${i}.jpeg`;
+
+        img.alt =
+            `ذكرى ${i}`;
+
+        finalPhotos.appendChild(img);
+
+    }
+
+    finalPhotos.dataset.ready =
+        "1";
+}
+
+function playFinalCredits(){
+
+    buildFinalCredits();
+
+    finalScreenElement.scrollTop =
+        0;
+
+    const endPhotos =
+        finalPhotos.querySelectorAll(".endPhoto");
+
+    endPhotos.forEach(function(img){
+        img.classList.remove("show");
+    });
+
+    finalScreenElement.style.display =
+        "block";
+
+    finalScreenElement.style.opacity =
+        "0";
+
+    document.body.style.overflow =
+        "hidden";
+
+    requestAnimationFrame(function(){
+
+        finalScreenElement.style.opacity =
+            "1";
+
+    });
+
+    /* photos appear one by one */
+    endPhotos.forEach(function(img, index){
+
+        setTimeout(
+            function(){
+                img.classList.add("show");
+            },
+            900 + (index * 650)
+        );
+
+    });
+
+    /*
+       Camera scroll:
+       starts after the opening title,
+       then slowly travels through all 22 photos
+       until the very end.
+    */
+    setTimeout(function(){
+
+        const maxScroll =
+            finalScreenElement.scrollHeight -
+            finalScreenElement.clientHeight;
+
+        const duration =
+            Math.max(
+                18000,
+                endPhotos.length * 1050
+            );
+
+        const start =
+            performance.now();
+
+        function scrollFrame(now){
+
+            const progress =
+                Math.min(
+                    1,
+                    (now - start) / duration
+                );
+
+            /* gentle cinematic easing */
+            const eased =
+                progress < .5
+                    ? 2 * progress * progress
+                    : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+            finalScreenElement.scrollTop =
+                maxScroll * eased;
+
+            if(progress < 1){
+
+                requestAnimationFrame(
+                    scrollFrame
+                );
+
+            }
+
+        }
+
+        requestAnimationFrame(
+            scrollFrame
+        );
+
+    }, 1800);
+
+}
+
+if(endButton){
+
+    endButton.addEventListener(
+        "click",
+        function(){
+
+            playFinalCredits();
+
+        }
+    );
+
+}
+
+/* =====================================================
+   MESSAGE SAVE
+===================================================== */
+
+const message =
+    document.getElementById(
+        "message"
+    );
+
+const saveMessage =
+    document.getElementById(
+        "saveMessage"
+    );
+
+
+if(message && saveMessage){
+
+    const savedMessage =
+        localStorage.getItem("mamaMessage");
+
+    if(savedMessage){
+        message.value = savedMessage;
+    }
+
+    saveMessage.addEventListener(
+        "click",
+        function(){
+
+            if(message.value.trim() === ""){
+
+                alert("اكتب الرسالة الأول 🤍");
+                return;
+
+            }
+
+            localStorage.setItem(
+                "mamaMessage",
+                message.value
+            );
+
+            alert("الرسالة اتحفظت ❤️");
+
+        }
+    );
+}
+
+</script>
+
+</body>
+
+</html> 

@@ -1,0 +1,832 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#003f46;
+    color:white;
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+   PASSWORD SCREEN
+===================================================== */
+
+#passwordScreen{
+    position:fixed;
+    inset:0;
+    z-index:999999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #08747d 0%,
+            #00474f 45%,
+            #00191c 100%
+        );
+
+    transition:opacity 1s ease;
+}
+
+.passwordBox{
+    width:100%;
+    max-width:430px;
+
+    padding:45px 28px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.55);
+}
+
+.passwordHeart{
+    font-size:65px;
+    margin-bottom:15px;
+
+    animation:heartBeat 1.8s infinite;
+}
+
+.passwordBox h1{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.passwordBox p{
+    line-height:2;
+    opacity:.82;
+    margin-bottom:25px;
+}
+
+#password{
+    width:100%;
+    height:58px;
+
+    border:1px solid rgba(255,255,255,.2);
+    outline:none;
+
+    border-radius:16px;
+
+    background:rgba(0,0,0,.25);
+
+    color:white;
+
+    text-align:center;
+
+    font-size:25px;
+
+    letter-spacing:10px;
+}
+
+#enterBtn{
+    width:100%;
+    height:58px;
+
+    margin-top:15px;
+
+    border:none;
+    border-radius:16px;
+
+    background:white;
+    color:#004c54;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+#enterBtn:hover{
+    transform:translateY(-2px);
+}
+
+#error{
+    display:none;
+
+    margin-top:15px;
+
+    color:#ffbaba;
+}
+
+
+/* =====================================================
+   HEART ANIMATION
+===================================================== */
+
+@keyframes heartBeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.14);
+    }
+
+}
+
+
+/* =====================================================
+   CINEMA
+===================================================== */
+
+#cinema{
+    position:fixed;
+    inset:0;
+
+    z-index:99998;
+
+    display:none;
+
+    background:#00191c;
+
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   MEMORY SHOW
+===================================================== */
+
+#memoryShow{
+    position:absolute;
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #075861 0%,
+            #00191c 85%
+        );
+}
+
+#memoryImage{
+    width:min(92vw,850px);
+    height:min(86vh,850px);
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    opacity:1;
+
+    transform:scale(1);
+
+    filter:
+        drop-shadow(
+            0 25px 70px rgba(0,0,0,.8)
+        );
+
+    will-change:
+        transform,
+        opacity;
+}
+
+.memoryCounter{
+    position:absolute;
+
+    top:22px;
+    right:22px;
+
+    z-index:20;
+
+    padding:9px 17px;
+
+    border-radius:30px;
+
+    background:rgba(0,0,0,.3);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    backdrop-filter:blur(12px);
+
+    font-size:19px;
+}
+
+.memoryText{
+    position:absolute;
+
+    bottom:22px;
+
+    font-size:17px;
+
+    opacity:.75;
+}
+
+
+/* =====================================================
+   COLLAGE
+===================================================== */
+
+#collageShow{
+    position:absolute;
+    inset:0;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #08646d 0%,
+            #00343a 45%,
+            #001215 100%
+        );
+
+    overflow:hidden;
+
+    transition:opacity 1s ease;
+}
+
+.collageTitle{
+    position:absolute;
+
+    top:20px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:
+        clamp(25px,5vw,40px);
+
+    font-weight:bold;
+
+    z-index:100;
+
+    text-shadow:
+        0 5px 30px rgba(0,0,0,.8);
+}
+
+
+/* =====================================================
+   COLLAGE CONTAINER
+===================================================== */
+
+#collageContainer{
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    max-width:none;
+    max-height:none;
+}
+
+
+/* =====================================================
+   BIG PHOTO CARDS
+===================================================== */
+
+.collagePhoto{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:230px;
+    height:310px;
+
+    padding:8px;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.85);
+
+    opacity:0;
+
+    overflow:hidden;
+
+    animation:
+        collageAppear
+        1s
+        cubic-bezier(.16,1,.3,1)
+        forwards;
+}
+
+.collagePhoto img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    border-radius:11px;
+}
+
+
+/* =====================================================
+   COLLAGE ANIMATION
+===================================================== */
+
+@keyframes collageAppear{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.12)
+            rotate(0deg);
+
+        filter:blur(15px);
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:1;
+
+        filter:blur(0);
+    }
+}
+
+
+/* =====================================================
+   FINAL SCREEN
+===================================================== */
+
+#finalScreen{
+    position:fixed;
+
+    inset:0;
+
+    z-index:9999999;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    flex-direction:column;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:#000;
+
+    color:white;
+
+    opacity:0;
+
+    transition:opacity 2s ease;
+}
+
+.finalHeart{
+    font-size:75px;
+
+    margin-bottom:25px;
+
+    animation:
+        heartBeat 1.7s infinite;
+}
+
+.finalText{
+    font-size:
+        clamp(30px,7vw,65px);
+
+    font-weight:bold;
+
+    line-height:1.7;
+
+    text-shadow:
+        0 0 30px rgba(255,255,255,.15);
+}
+
+
+/* =====================================================
+   MAIN SITE
+===================================================== */
+
+#mainSite{
+    display:none;
+
+    min-height:100vh;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 5%,
+            rgba(255,255,255,.08),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(255,255,255,.05),
+            transparent 25%
+        ),
+
+        #00464d;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    min-height:90vh;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    padding:60px 20px;
+}
+
+.heroSmall{
+    font-size:20px;
+
+    opacity:.85;
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:
+        clamp(55px,13vw,100px);
+
+    line-height:1.1;
+
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:20px;
+
+    line-height:2;
+
+    opacity:.9;
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+.section{
+    width:min(1050px,92%);
+
+    margin:auto;
+
+    padding:90px 0;
+}
+
+.sectionTitle{
+    text-align:center;
+
+    font-size:35px;
+
+    margin-bottom:40px;
+}
+
+
+/* =====================================================
+   BIRTHDAY
+===================================================== */
+
+.birthday{
+    padding:50px 25px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.25);
+}
+
+.age{
+    font-size:110px;
+    font-weight:bold;
+}
+
+.birthday h2{
+    font-size:30px;
+
+    margin-bottom:15px;
+}
+
+.birthday p{
+    line-height:2;
+
+    opacity:.85;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.messageBox{
+    padding:30px;
+
+    border-radius:28px;
+
+    background:white;
+
+    color:#17484d;
+}
+
+.messageBox textarea{
+    width:100%;
+
+    min-height:200px;
+
+    resize:vertical;
+
+    border:none;
+
+    outline:none;
+
+    font-family:Tahoma,Arial;
+
+    font-size:18px;
+
+    line-height:2;
+}
+
+.messageButton{
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:30px;
+
+    background:#005c65;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:16px;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.cards{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+}
+
+.card{
+    padding:30px 20px;
+
+    text-align:center;
+
+    line-height:2;
+
+    border-radius:25px;
+
+    background:white;
+
+    color:#17484d;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.15);
+}
+
+
+/* =====================================================
+   GALLERY
+===================================================== */
+
+.gallery{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.03);
+}
+
+
+/* =====================================================
+   QUOTE
+===================================================== */
+
+.quote{
+    padding:60px 25px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+}
+
+.quote h2{
+    font-size:
+        clamp(25px,6vw,45px);
+
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   END
+===================================================== */
+
+.end{
+    min-height:70vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:80px 20px;
+}
+
+.end h1{
+    font-size:
+        clamp(60px,15vw,120px);
+}
+
+.end p{
+    margin-top:20px;
+
+    opacity:.75;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1000px){
+
+    .collagePhoto{
+        width:185px;
+        height:250px;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    #memoryImage{
+        width:94vw;
+        height:76vh;
+
+        border-radius:15px;
+    }
+
+    .memoryCounter{
+        top:13px;
+        right:13px;
+
+        font-size:16px;
+
+        padding:7px 13px;
+    }
+
+    .collagePhoto{
+        width:145px;
+        height:200px;
+
+        padding:6px;
+
+        border-radius:14px;
+    }
+
+    #collageContainer{
+        width:100vw;
+        height:100vh;
+    }
+
+    .collageTitle{
+        font-size:24px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .gallery img{
+        height:180px;
+    }
+
+    .section{
+        padding:70px 0;
+    }
+
+    .age{
+        font-size:80px;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:420px){
+
+    .collagePhoto{
+        width:128px;
+        height:175px;
+    }
+
+    .collageTitle{
+        font-size:21px;
+    }
+
+}
